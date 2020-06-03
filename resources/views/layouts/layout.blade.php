@@ -18,6 +18,7 @@
 
     <title>FREE Ultimate Guide to CDA Interviews: Tips &amp; Proven Strategies to Help You Prepare &amp; Ace Your CDA Structured Interview. </title>
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/styles.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/styles.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/colourtag-page0.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/flexslider.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/css/contentcenter.css">
@@ -50,9 +51,11 @@
 
 
 
-{{--    <script type="text/javascript" src="http://cdainterview.com/rw_common/themes/Endeavor/scripts/function.js"></script>--}}
-{{--    <script type="text/javascript" src="http://cdainterview.com/rw_common/themes/Endeavor/scripts/jquery.fitvids.js"></script>--}}
-{{--    <script type="text/javascript" src="http://cdainterview.com/rw_common/themes/Endeavor/scripts/jquery.flexslider.js"></script>--}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
 
@@ -68,6 +71,7 @@
 
     <meta name="{{$page->meta_name}}" content="{{$page->meta_description}}">
     <link rel="stylesheet" href="{{ URL::asset('css/simple-grid.min.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/mystyle.css') }}" />
     <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=235586069975455&amp;ev=NoScript" /></noscript><!-- End Google Analytics -->
 
 </head>
@@ -97,16 +101,12 @@
     </div>
 {{--</div>--}}
 </span>
-    @if (!Auth::check())
+    @if (Auth::check())
+
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-    <h1>Page Config: {{$page->name}}</h1>
-    <div class="row">
+    <div class="row" style="padding: 70px">
+    <h1>Page Meta Configuration: {{$page->name}}</h1><hr>
     <form method="POST" action="/page/update">
         @csrf
         <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
@@ -120,7 +120,7 @@
                     <textarea id="metaDescription" name="metaDescription" cols="100">{{ $page->meta_description }}</textarea>
                 </div>
             <div class="col-2">
-                Indexed:<label class="switch">
+                Indexed (for all pages):<label class="switch">
                     <input id="indexedFlag" name="indexedFlag" type="checkbox"  @if ($page->indexed)checked @endif>
                     <span class="slider round"></span>
                 </label>

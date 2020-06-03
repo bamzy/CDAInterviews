@@ -1,34 +1,48 @@
 @extends('layouts.layout')
 @section('content')
-    <div style="padding-top: 100px!important;"><br/><br/>
-        @if (!Auth::check())
-            <h2>Content Config</h2>
+    <div style="padding: 70px!important;"><br/><br/>
+        @if (Auth::check())
+            <h2>Content Configuration</h2>
         @endif
         @foreach ($items as $item)
             @if (Auth::check())
-                <br/>
+
                 <hr>
+                <div class="row">
                 <form method="POST" action="/item/update">
                     <input id="itemId" name="itemId" type="hidden" value="{{$item['id']}}">
                     <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
                     @csrf
-                    @if ($item['type_id'] != "2" || $item['type_id'] != "3")
+                    @if ($item['type_id'] == "1" )
                         <div class="row">
-                            <div class="col-3">Text:</div>
-                            <div class="col-8">
-                            <textarea id="body" name="body" cols="100">{{ $item['body'] }}</textarea>
+                            <div class="col-2"><b>Paragraph Text:</b></div>
+                            <div class="col-10">
+                            <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
                             </div>
                         </div>
-                    @else
+                    @elseif ($item['type_id'] == "2")
                         <div class="row">
-                            <div class="col-3">Text:</div>
-                            <div class="col-8">
-                                <textarea id="body" name="body" cols="100">{{ $item['body'] }}</textarea>
+                            <div class="col-2"><b>Link Text:</b></div>
+                            <div class="col-10">
+                                <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-3">Link Address::</div>
-                            <div class="col-8">
+                            <div class="col-2"><b>Link Address:</b></div>
+                            <div class="col-10">
+                                <input name="linkAddress" type="text" id="linkAddress" style="width: 100%" value="{{ $item['link'] }}">
+                            </div>
+                        </div>
+                    @elseif ($item['type_id'] == "3")
+                        <div class="row">
+                            <div class="col-2"><b>Image Hint:</b></div>
+                            <div class="col-10">
+                                <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"><b>Image Address:</b></div>
+                            <div class="col-10">
                                 <input name="linkAddress" type="text" id="linkAddress" style="width: 100%" value="{{ $item['link'] }}">
                             </div>
                         </div>
@@ -37,46 +51,57 @@
 
                     @endif
                     <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-8">
-                    Italic:<label class="switch">
-                            <input id="italicFlag" name="italicFlag" type="checkbox"  @if ($item['italic'])checked @endif>
+                        <div class="col-2"><b>Style:</b></div>
+                        <div class="col-10">
+                                @if ($item['type_id'] != "3" )
+                                    <div class="col-sm-1">Italic:<label class="switch">
+                                <input id="italicFlag" name="italicFlag" type="checkbox"  @if ($item['italic'])checked @endif>
+                                <span class="slider round"></span>
+                            </label></div>
+                                    <div class="col-sm-1">Bold:<label class="switch">
+                            <input id="boldFlag" name="boldFlag" type="checkbox"  @if ($item['bold'])checked @endif>
                             <span class="slider round"></span>
-                        </label>
-                    Bold:<label class="switch">
-                        <input id="boldFlag" name="boldFlag" type="checkbox"  @if ($item['bold'])checked @endif>
-                        <span class="slider round"></span>
-                    </label>
-                    Strike:<label class="switch">
-                        <input id="strikeFlag" name="strikeFlag" type="checkbox"  @if ($item['striked'])checked @endif>
-                        <span class="slider round"></span>
-                    </label>
-                    Center:<label class="switch">
-                        <input id="centerFlag" name="centerFlag" type="checkbox"  @if ($item['centralized'])checked @endif>
-                        <span class="slider round"></span>
-                    </label>
-                    Header: <select class="form-control" id="type" name="type">
+                                        </label></div>
+                                    <div class="col-sm-1">Strike:<label class="switch">
+                            <input id="strikeFlag" name="strikeFlag" type="checkbox"  @if ($item['striked'])checked @endif>
+                            <span class="slider round"></span>
+                                        </label></div>
+                                    <div class="col-sm-1">Center:<label class="switch">
+                            <input id="centerFlag" name="centerFlag" type="checkbox"  @if ($item['centralized'])checked @endif>
+                            <span class="slider round"></span>
+                                        </label></div>
 
-                        <option value="" >None</option>
-                        @foreach ($hsizes as $hsize)
-                            <option value="{{ $hsize->id }}" @if ($item['hsize_id']== $hsize->id)selected @endif> {{ $hsize->start_tag }}</option>
-                        @endforeach
-                    </select>
 
-                    Type: <select class="form-control" id="type" name="hsize">
+                                    <div class="col-3">Header:
+                                        @foreach ($hsizes as $hsize)
+                                            <input type="radio" id="{{$item['hsize_id']}}" name="hsize" value="{{ $hsize->id }}" @if ($item['hsize_id']== $hsize->id)checked @endif> {{ $hsize->start_tag }}</option>
+                                        @endforeach
 
-                        @foreach ($types as $type)
-                            <option value="{{ $type->id }}" @if ($item['type_id']== $type->id)selected @endif> {{ $type->type_name }}</option>
-                        @endforeach
-                    </select>
+                                    </div>
+{{--                                    <div class="col-2">Header: <select class="form-control" id="type" name="hsize">--}}
 
-                    <button type="submit" class="btn btn-success">Save</button>
+{{--                            <option value="" >None</option>--}}
+{{--                            @foreach ($hsizes as $hsize)--}}
+{{--                                <option value="{{ $hsize->id }}" @if ($item['hsize_id']== $hsize->id)selected @endif> {{ $hsize->start_tag }}</option>--}}
+{{--                            @endforeach--}}
+{{--                                        </select></div>--}}
+                                @endif
+                                    <div class="col-2">&nbsp;&nbsp;Type: <select class="form-control" id="type" name="type">
+
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @if ($item['type_id']== $type->id)selected @endif> {{ $type->type_name }}</option>
+                            @endforeach
+                                        </select></div>
+                                <div class="col-4">
+                                <button type="submit" class="btn btn-success">Save</button>
+                                </div>
                         </div>
-                    </div>
+                </div>
 
 
 
                 </form>
+            </div>
             @else
                 @if ($item['type_id'] == '1')
                     <p>
@@ -114,96 +139,5 @@
 
   </div>
 
-    <style>
-        form div {
-            padding-top: 1px!important;
-            padding-bottom: 0px!important;
-        }
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 35px;
-            height: 20px;
-        }
 
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 13px;
-            width: 13px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked + .slider:before {
-            -webkit-transform: translateX(16px);
-            -ms-transform: translateX(16px);
-            transform: translateX(16px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-        .btn-light {
-            color: #212529;
-            background-color: #f8f9fa;
-            border-color: #f8f9fa;
-        }
-        .btn-success {
-            color: #fff;
-            background-color: #28a745;
-            border-color: #28a745;
-        }
-        .btn {
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: .25rem;
-            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-        }
-    </style>
 @endsection
