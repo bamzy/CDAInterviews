@@ -6,7 +6,7 @@
 
     <title>Fake CDA Interviews - {{$page->name}}</title>
 
-
+    @if ($page->indexed) <meta name="robots" content="noindex"> @endif
 
     <!-- Styles -->
 
@@ -77,8 +77,12 @@
 </head>
 <body>
 <div id="wrapper">
-<span style="width: 100%">
-{{--    <div class="row">--}}
+<header class="navbar navbar-default  navbar-fixed-top desktopScreenNavbar" role="navigation">
+<span style="position: fixed;top:0;left:0;width: 100%">
+
+
+
+
 <div id="titlelogo">
     <a href="http://cdainterview.com/">
         <div id="logo"><img src="http://cdainterview.com/rw_common/images/bemo-logo2.png" width="167" height="100" alt="Site logo"></div>
@@ -89,22 +93,24 @@
     <div id="menuBtn"></div>
     <nav>
         <ul class="navigation">
-            <li id="current">
-                <a href="/" rel="self">Main</a>
-            </li>
+            @if($page->name == "Home")<li id="current">
+            @else <li> @endif
 
-            <li >
-                <a href="/contacts" rel="self" id="current">Contact Us</a>
+                <a href="/page/1" rel="self">Main</a>
+            </li>
+            @if($page->name == "Contacts")<li id="current">
+            @else <li> @endif
+                <a href="/page/2" rel="self" >Contact Us</a>
             </li>
         </ul>
     </nav>
     </div>
+</header>
 {{--</div>--}}
 </span>
-    @if (Auth::check())
+    @if (!Auth::check())
 
-        <br/>
-        <br/>
+
     <div class="row" style="padding: 70px">
     <h1>Page Meta Configuration: {{$page->name}}</h1><hr>
     <form method="POST" action="/page/update">

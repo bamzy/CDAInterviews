@@ -88,3 +88,17 @@ input:checked + .slider:before {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+h1, h2, h3,.spaced {
+    padding-left: 70px!important;
+}
+.stick-left {
+    padding-left: 0px!important;
+}
+.navbar {
+    min-height: 105px!important;
+    background-color: rgba(255, 255, 255, .9);
+}
+.desktopScreenNavbar, nav ul ul, .navb, .mobileScreenNavbar, .mobileb {
+    background-color: rgba(255, 255, 255, .9)!important;
+}
+

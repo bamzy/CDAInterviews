@@ -15,7 +15,7 @@ class Page extends Model
      */
     public function items()
     {
-        return $this->belongsToMany('App\Model\Item','item_pages','page_id','item_id');
+        return $this->belongsToMany('App\Model\Item','item_pages','page_id','item_id')->orderBy('order','asc');
     }
 
 }

@@ -26,12 +26,13 @@ class PageController extends Controller
     }
 
     public function render($id){
-
-        $items = Page::find($id)->items->toArray(['id']);
-        $page = Page::find($id);
-        $types = ItemType::all();
-        $hsizes = HSize::all();
-        return view('home')->with(['items'=>$items,'types'=>$types,'page'=>$page,'hsizes'=>$hsizes]);
+        if (Auth::check()) {
+            $items = Page::find($id)->items->toArray(['id']);
+            $page = Page::find($id);
+            $types = ItemType::all();
+            $hsizes = HSize::all();
+            return view('page.edit')->with(['items'=>$items,'types'=>$types,'page'=>$page,'hsizes'=>$hsizes]);
+        else
 
     }
     public function store(Request $request)
@@ -39,9 +40,10 @@ class PageController extends Controller
         $page = Page::find($request->pageId);
         $page->meta_name = $request->metaName;
         $page->meta_description = $request->metaDescription;
+        $page->indexed = $request->indexedFlag;
         $page->save();
-        $indexedFlag = (isset($request->indexedFlag))? true:false;
-        DB::table('pages')->update(array('indexed' => $indexedFlag));
+//        $indexedFlag = (isset($request->indexedFlag))? true:false;
+//        DB::table('pages')->update(array('indexed' => $indexedFlag));
         return redirect('/page/'.$request->pageId);
     }
 }

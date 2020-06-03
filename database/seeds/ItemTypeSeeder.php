@@ -23,9 +23,10 @@ class ItemTypeSeeder extends Seeder
             'id'=> '3',
             'type_name' => 'image',
         ]);
+
         DB::table('item_types')->insert([
             'id'=> '4',
-            'type_name' => 'meta',
+            'type_name' => 'html',
         ]);
     }
 }
