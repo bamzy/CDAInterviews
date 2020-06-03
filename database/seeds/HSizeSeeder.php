@@ -11,6 +11,12 @@ class HSizeSeeder extends Seeder
      */
     public function run()
     {
+
+        DB::table('hsizs')->insert([
+            'id'=> '0',
+            'start_tag' => 'None',
+            'end_tag' => 'None',
+        ]);
         DB::table('hsizs')->insert([
             'id'=> '1',
             'start_tag' => '<h1>',
