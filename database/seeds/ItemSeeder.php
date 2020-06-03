@@ -34,7 +34,11 @@ class ItemSeeder extends Seeder
 History and rationale of the CDA interview<br/>
 Types of Questions<br/>
 The Seven Competencies<br/>
-Structure of the CDA interview<br/>',
+Structure of the CDA interview<br/>
+<a href="how-to-prepare-for-cda-interview.html" rel="self" title="How To Prepare">How to prepare for your CDA Interview</a><br/>
+<a href="sample-cda-interview-questions.html" rel="self" title="CDA Interview Questions">Sample CDA interview questions</a><br/>
+<a href="http://bemoacademicconsulting.com/Dental-School-Interview-Preparation.html" rel="external" target="_blank">BeMo CDA-structured interview prep program</a><br/>
+<a href="contact-us.php" rel="self" title="Contact Us">Contact us</a>',
             'link'=> '',
             'type_id' =>1
         ]);
@@ -42,31 +46,6 @@ Structure of the CDA interview<br/>',
 
 
 
-
-        DB::table('items')->insert([
-            'id'=> '4',
-            'body' => 'How to prepare for your CDA Interview',
-            'link'=> 'http://cdainterview.com/how-to-prepare-for-cda-interview.html',
-            'type_id' =>2
-        ]);
-        DB::table('items')->insert([
-            'id'=> '5',
-            'body' => 'Sample CDA interview questions',
-            'link'=> 'http://cdainterview.com/sample-cda-interview-questions.html',
-            'type_id' =>2
-        ]);
-        DB::table('items')->insert([
-            'id'=> '6',
-            'body' => 'BeMo CDA-structured interview prep program',
-            'link'=> 'http://bemoacademicconsulting.com/Dental-School-Interview-Preparation.html',
-            'type_id' =>2
-        ]);
-        DB::table('items')->insert([
-            'id'=> '7',
-            'body' => 'Contact us',
-            'link'=> 'http://cdainterview.com/contact-us.php',
-            'type_id' =>2
-        ]);
 
         DB::table('items')->insert([
             'id'=> '9',
@@ -154,37 +133,19 @@ Click <a href="http://bemoacademicconsulting.com/Dental-School-Interview-Prepara
             'link' => 'http://cdainterview.com/resources/contact-us.png',
             'type_id' =>3
         ]);
-        DB::table('items')->insert([
-            'id'=> '30',
-            'body' => 'BeMo Academic Consulting Inc.',
-            'link' => '',
-            'hsize_id' =>3,
-            'type_id' =>1
-        ]);
-        DB::table('items')->insert([
-            'id'=> '31',
-            'body' => '<u>Toll Free:</u> 1-855-900-BeMo (2366)',
-            'link' => '',
-            'type_id' =>1
-        ]);
-        DB::table('items')->insert([
-            'id'=> '32',
-            'body' => '<u>Toll Free:</u> info@bemoacademicconsulting.com',
-            'link' => '',
-            'type_id' =>1
-        ]);
+
 
         DB::table('items')->insert([
             'id'=> '33',
             'body' => '<form action="./contact-us_files/mailer.php" method="post" enctype="multipart/form-data">
 	 <div><div class="message-text"><span style="font-size:17px; font-weight:bold; ">BeMo Academic Consulting Inc. </span><br><span><span style="font-size:13px; font-weight:bold; "><u>Toll Free</u></span><span style="font-size:13px; ">: </span><span style="font-size:14px; ">1-855-900-BeMo (2366)</span><span style="font-size:13px; "><br></span><span style="font-size:13px; font-weight:bold; "><u>Email</u></span><span style="font-size:13px; ">: </span><span style="font-size:14px; ">info@bemoacademicconsulting.com</span></span></div>
-		<label>Name:</label> *<br>
+		<center><label>Name:</label> *</center><br>
 		<input class="form-input-field" type="text" value="" name="form[element0]" size="40"><br><br>
 
-		<label>Email Address:</label> *<br>
+		<center><label>Email Address:</label> *</center><br>
 		<input class="form-input-field" type="text" value="" name="form[element1]" size="40"><br><br>
 
-		<label>How can we help you?</label> *<br>
+		<center><label>How can we help you?</label> *</center><br>
 		<textarea class="form-input-field" name="form[element2]" rows="8" cols="38"></textarea><br><br>
 
 		<div style="display: none;"><div class="message-text"><span style="font-size:17px; font-weight:bold; ">BeMo Academic Consulting Inc. </span><br><span><span style="font-size:13px; font-weight:bold; "><u>Toll Free</u></span><span style="font-size:13px; ">: </span><span style="font-size:14px; ">1-855-900-BeMo (2366)</span><span style="font-size:13px; "><br></span><span style="font-size:13px; font-weight:bold; "><u>Email</u></span><span style="font-size:13px; ">: </span><span style="font-size:14px; ">info@bemoacademicconsulting.com</span></span></div>

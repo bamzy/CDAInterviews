@@ -1,12 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.editlayout')
 @section('content')
-
-        @if (!Auth::check())
-            <h2>Content Configuration</h2>
-        @endif
+        <h2>Content Configuration</h2>
+        <h4>You can also use html tags directly in the text, but for convenience some particular tags are provided through btns </h4>
         @foreach ($items as $item)
-            @if (!Auth::check())
-                <div style="padding: 70px!important;">
+
+                <div class="spaced">
                     <hr>
                     <div class="row">
                     <form method="POST" action="/item/update">
@@ -15,7 +13,13 @@
                         @csrf
                         @if ($item['type_id'] == "1" )
                             <div class="row">
-                                <div class="col-2"><b>Paragraph Text:</b></div>
+                                <div class="col-2"><b>Text Title:</b></div>
+                                <div class="col-10">
+                                    <input type="text" id="title" name="title" class="form-control" value="{{ $item['title'] }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"><b>Text Body:</b></div>
                                 <div class="col-10">
                                 <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
                                 </div>
@@ -34,18 +38,21 @@
                                 </div>
                             </div>
                         @elseif ($item['type_id'] == "3")
-                            <div class="row">
-                                <div class="col-2"><b>Image Hint:</b></div>
-                                <div class="col-10">
-                                    <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="col-2"><b>Image Address:</b></div>
                                 <div class="col-10">
                                     <input name="linkAddress" type="text" id="linkAddress" style="width: 100%" value="{{ $item['link'] }}">
                                 </div>
                             </div>
+                        @elseif ($item['type_id'] == "4")
+                            <div class="row">
+                                <div class="col-2"><b>Pure HTML:</b></div>
+                                <div class="col-10">
+                                    <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
+                                </div>
+                            </div>
+
 
 
 
@@ -53,7 +60,7 @@
                         <div class="row">
                             <div class="col-2"><b>Style:</b></div>
                             <div class="col-10">
-                                    @if ($item['type_id'] != "3" )
+                                    @if ($item['type_id'] != "3" && $item['type_id'] != "4"  )
                                         <div class="col-sm-1">Italic:<label class="switch">
                                     <input id="italicFlag" name="italicFlag" type="checkbox"  @if ($item['italic'])checked @endif>
                                     <span class="slider round"></span>
@@ -93,44 +100,5 @@
                     </form>
                 </div>
             </div>
-
-            @else
-                @if ($item['type_id'] == '1')
-                    <p class="spaced" >
-                        @if ($item['hsize_id'] == '1')<h1> @endif
-                        @if ($item['hsize_id'] == '2')<h2> @endif
-                        @if ($item['hsize_id'] == '3')<h3> @endif
-                        @if ($item['striked'])<del> @endif
-                        @if ($item['centralized'])<center> @endif
-                        @if ($item['bold'])<b> @endif
-                        @if ($item['italic'])<i> @endif
-                                                {!!html_entity_decode($item['body'])!!}
-{{--                                    {{ $item['body'] }}--}}
-                        @if ($item['italic'])</i>
-                        @endif @if ($item['bold'])</b> @endif
-                        @if ($item['centralized'])</center> @endif
-                        @if ($item['striked'])</del> @endif
-                        @if ($item['hsize_id'] == '1')</h3> @endif
-                        @if ($item['hsize_id'] == '2')</h2> @endif
-                        @if ($item['hsize_id'] == '3')</h1> @endif
-                    </p>
-                @elseif ($item['type_id']== '2')
-                    <p class="spaced">
-                        <a href="{{$item['link']}}">{{$item['body']}}</a>
-                    </p>
-                @elseif ($item['type_id']== '3')
-                    <p class="stick-left">
-                        <img src="{{$item['link']}}" alt="{{$item['body']}}" width="100%" height="600">
-                        <a href="{{$item['link']}}">{{$item['body']}}</a>
-                    </p>
-                @endif
-
-            @endif
-
-
-            @endforeach
-
-
-
-
+        @endforeach
 @endsection

@@ -9,6 +9,7 @@ use App\Model\Page;
 use App\Model\Item;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Array_;
 
@@ -20,19 +21,26 @@ class PageController extends Controller
      * @param  int  $id
      * @return View
      */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('render');
+
+    }
     public function show($id)
     {
 
     }
 
     public function render($id){
-        if (Auth::check()) {
             $items = Page::find($id)->items->toArray(['id']);
             $page = Page::find($id);
             $types = ItemType::all();
             $hsizes = HSize::all();
-            return view('page.edit')->with(['items'=>$items,'types'=>$types,'page'=>$page,'hsizes'=>$hsizes]);
+        if (Auth::check()) {
+            return view('editpage')->with(['items' => $items, 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
+        }
         else
+            return view('viewpage')->with(['items'=>$items,'types'=>$types,'page'=>$page,'hsizes'=>$hsizes]);
 
     }
     public function store(Request $request)

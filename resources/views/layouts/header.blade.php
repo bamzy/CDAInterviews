@@ -8,7 +8,7 @@
 
     @if ($page->indexed) <meta name="robots" content="noindex"> @endif
 
-    <!-- Styles -->
+<!-- Styles -->
 
     <meta name="google-site-verification" content="XHAz5PWm2RHaIVuVJQ-gwi54Wn5O-LVlXL7QCExSSzA">
     <meta name="online" content="true">
@@ -19,7 +19,7 @@
     <title>FREE Ultimate Guide to CDA Interviews: Tips &amp; Proven Strategies to Help You Prepare &amp; Ace Your CDA Structured Interview. </title>
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/styles.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/styles.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/colourtag-page0.css">
+{{--    <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/colourtag-page0.css">--}}
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/flexslider.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/css/contentcenter.css">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/css/ec9on.css">
@@ -77,7 +77,7 @@
 </head>
 <body>
 <div id="wrapper">
-<header class="navbar navbar-default  navbar-fixed-top desktopScreenNavbar" role="navigation">
+    <header class="navbar navbar-default  navbar-fixed-top desktopScreenNavbar" role="navigation">
 <span style="position: fixed;top:0;left:0;width: 100%">
 
 
@@ -105,64 +105,6 @@
         </ul>
     </nav>
     </div>
-</header>
-{{--</div>--}}
 </span>
-    @if (!Auth::check())
-
-
-    <div class="row" style="padding: 70px">
-    <h1>Page Meta Configuration: {{$page->name}}</h1><hr>
-    <form method="POST" action="/page/update">
-        @csrf
-        <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
-        <div class="row">
-                <div class="col-3-sm">Meta Name:</div>
-                <div class="col-9-sm">
-                    <input type="text" id="metaName" name="metaName" value="{{ $page->meta_name }}" >
-                </div>
-                <div class="col-3">Meta Description:</div>
-                <div class="col-8">
-                    <textarea id="metaDescription" name="metaDescription" cols="100">{{ $page->meta_description }}</textarea>
-                </div>
-            <div class="col-2">
-                Indexed (for all pages):<label class="switch">
-                    <input id="indexedFlag" name="indexedFlag" type="checkbox"  @if ($page->indexed)checked @endif>
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-success">Save</button>
-            </div>
-            </div>
-
-
-
-    </form>
-    </div>
-    @endif
-    @yield('content')
-
-<footer>
-
-    <div id="footer">©2013-2016 BeMo Academic Consulting Inc. All rights reserved.
-        <a href="http://www.cdainterview.com/disclaimer-privacy-policy.html" target="_blank">
-            <span style="text-decoration:underline;">Disclaimer &amp; Privacy Policy</span>
-        </a>
-        <a href="mailto:info@bemoacademicconsulting.com" id="rw_email_contact" >
-            <span style="text-decoration:underline;">Contact Us</span>
-        </a>
-
-    </div>
-
-    <div id="socialicons">
-        <div id="socialicons1"></div>
-        <a class="social" href="https://www.facebook.com/bemoacademicconsulting">F</a><a class="social" href="https://twitter.com/BeMo_AC">L</a>
-    </div>
-
-</footer>
-<a href="#" class="scrollup" style="display: inline;">Scroll</a>
+</header>
 </div>
-</body>
-<html>
-

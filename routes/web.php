@@ -20,7 +20,7 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
-Route::get('page/{id}', 'PageController@render')->middleware('auth');;
+Route::get('page/{id}', 'PageController@render');;
 Route::post('page/update/', 'PageController@store');
 Route::post('item/update/', 'ItemController@store');
 

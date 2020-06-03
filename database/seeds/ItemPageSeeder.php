@@ -31,30 +31,7 @@ class ItemPageSeeder extends Seeder
             'order' => '3',
             'page_id' =>'1'
         ]);
-        DB::table('item_pages')->insert([
-            'id'=> '4',
-            'item_id' => '4',
-            'order' => '4',
-            'page_id' =>'1'
-        ]);
-        DB::table('item_pages')->insert([
-            'id'=> '5',
-            'item_id' => '5',
-            'order' => '5',
-            'page_id' =>'1'
-        ]);
-        DB::table('item_pages')->insert([
-            'id'=> '6',
-            'item_id' => '6',
-            'order' => '6',
-            'page_id' =>'1'
-        ]);
-        DB::table('item_pages')->insert([
-            'id'=> '7',
-            'item_id' => '7',
-            'order' => '7',
-            'page_id' =>'1'
-        ]);
+
 
         DB::table('item_pages')->insert([
             'id'=> '9',
@@ -76,12 +53,7 @@ class ItemPageSeeder extends Seeder
             'order' => '17',
             'page_id' =>'1'
         ]);
-        DB::table('item_pages')->insert([
-            'id'=> '19',
-            'item_id' => '19',
-            'order' => '19',
-            'page_id' =>'1'
-        ]);
+
         DB::table('item_pages')->insert([
             'id'=> '20',
             'item_id' => '20',
@@ -113,25 +85,7 @@ class ItemPageSeeder extends Seeder
             'order' => '1',
             'page_id' =>'2'
         ]);
-        DB::table('item_pages')->insert([
-            'id'=> '30',
-            'item_id' => '30',
-            'order' => '2',
-            'bold'=>true,
-            'page_id' =>'2'
-        ]);
-        DB::table('item_pages')->insert([
-            'id'=> '31',
-            'item_id' => '31',
-            'order' => '3',
-            'page_id' =>'2'
-        ]);
-        DB::table('item_pages')->insert([
-            'id'=> '32',
-            'item_id' => '32',
-            'order' => '4',
-            'page_id' =>'2'
-        ]);
+
         DB::table('item_pages')->insert([
             'id'=> '33',
             'item_id' => '33',

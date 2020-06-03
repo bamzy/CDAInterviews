@@ -88,8 +88,21 @@ input:checked + .slider:before {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-h1, h2, h3,.spaced {
+h1, h2, h3, h4,.spaced {
     padding-left: 70px!important;
+}
+.spaced {
+    font: 16px Arial, Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 16px;
+    line-height: normal;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
 }
 .stick-left {
     padding-left: 0px!important;
@@ -101,4 +114,23 @@ h1, h2, h3,.spaced {
 .desktopScreenNavbar, nav ul ul, .navb, .mobileScreenNavbar, .mobileb {
     background-color: rgba(255, 255, 255, .9)!important;
 }
+.form-input-field {
+    background: #c4c4c4;
+}
+footer {
+    display: block;
+    background-color: #000066;
+    padding: 2% 5% 2% 5%;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+#footer{
+    color: white;
+}
+#footer > a >span{
+    color:darkred!important;
+}
+
 
