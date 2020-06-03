@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+
+Route::get('page/{id}', 'PageController@render');
+Route::post('page/update/', 'PageController@store');
+Route::post('item/update/', 'ItemController@store');
