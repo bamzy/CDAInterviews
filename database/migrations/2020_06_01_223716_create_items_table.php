@@ -15,14 +15,16 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('body');
-            $table->string('link');
+            $table->string('body',4000)->nullable();
+            $table->string('link',1000)->nullable();
             $table->boolean('bold');
             $table->boolean('italic');
-            $table->foreignId('tag_id');
+            $table->boolean('centralized');
+            $table->boolean('striked');
+            $table->foreignId('hsize_id');
             $table->foreignId('type_id');
-            $table->foreign('tag_id')->references('id')->on('tags');
             $table->foreign('type_id')->references('id')->on('item_types');
+            $table->foreign('hsize_id')->references('id')->on('hsize');
             $table->timestamps();
         });
     }

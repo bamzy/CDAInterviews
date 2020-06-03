@@ -11,21 +11,21 @@ class ItemTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('item_type')->insert([
-            'id'=> '0',
-            'item_type' => 'plain',
-        ]);
-        DB::table('item_type')->insert([
+        DB::table('item_types')->insert([
             'id'=> '1',
-            'item_type' => 'link',
+            'type_name' => 'plain',
         ]);
-        DB::table('item_type')->insert([
+        DB::table('item_types')->insert([
             'id'=> '2',
-            'item_type' => 'image',
+            'type_name' => 'link',
         ]);
-        DB::table('item_type')->insert([
+        DB::table('item_types')->insert([
             'id'=> '3',
-            'item_type' => 'meta',
+            'type_name' => 'image',
+        ]);
+        DB::table('item_types')->insert([
+            'id'=> '4',
+            'type_name' => 'meta',
         ]);
     }
 }
