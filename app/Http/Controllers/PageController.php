@@ -26,21 +26,19 @@ class PageController extends Controller
         $this->middleware('auth')->except('render');
 
     }
-    public function show($id)
-    {
-
-    }
-
+    private $items = null;
     public function render($id){
-            $items = Page::find($id)->items->toArray(['id']);
-            $page = Page::find($id);
-            $types = ItemType::all();
-            $hsizes = HSize::all();
+        $this->items = Page::find($id)->items->toArray(['id']);
+        $page = Page::find($id);
+        $types = ItemType::all();
+        $hsizes = HSize::all();
         if (Auth::check()) {
-            return view('editpage')->with(['items' => $items, 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
+            return view('editpage')->with(['items' => $this->items , 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
         }
-        else
-            return view('viewpage')->with(['items'=>$items,'types'=>$types,'page'=>$page,'hsizes'=>$hsizes]);
+        else {
+            $this->applyTags();
+            return view('viewpage')->with(['items' => $this->items, 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
+        }
 
     }
     public function store(Request $request)
@@ -50,8 +48,29 @@ class PageController extends Controller
         $page->meta_description = $request->metaDescription;
         $page->indexed = $request->indexedFlag;
         $page->save();
-//        $indexedFlag = (isset($request->indexedFlag))? true:false;
-//        DB::table('pages')->update(array('indexed' => $indexedFlag));
         return redirect('/page/'.$request->pageId);
+    }
+    private function applyTags(){
+
+        foreach ($this->items as &$item) {
+            if ($item['bold']) {
+                $item['body'] = '<b>' . $item['body'] . '</b>';
+            }
+            if ($item['italic']) {
+                $item['body'] = '<i>' . $item['body'] . '</i>';
+            }
+            if ($item['striked']) {
+                $item['body'] = '<del>' . $item['body'] . '</del>';
+            }
+            if ($item['centralized']) {
+                $item['body'] = '<div style="text-align: center;">' . $item['body'] . '</div>';
+            }
+            if ($item['hsize_id']!='') {
+                $tags = Hsize::find($item['hsize_id']);
+                $item['body'] = $tags['start_tag'] . $item['body'] . $tags['end_tag'];
+            }
+
+        }
+
     }
 }
