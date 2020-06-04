@@ -1,7 +1,7 @@
 @extends('layouts.editlayout')
 @section('content')
     <hr>
-        <h3>Content Configuration</h3>
+        <h3>{{$page->name}} Content Configuration</h3>
         <b class="spaced">You can also use html tags directly in the text, but for convenience some particular tags are provided through btns </b>
         @foreach ($items as $item)
 
@@ -104,3 +104,4 @@
                 <hr>
         @endforeach
 @endsection
+

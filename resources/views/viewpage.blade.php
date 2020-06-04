@@ -26,3 +26,4 @@
             @endif
         @endforeach
 @endsection
+@yield('layouts.footer')

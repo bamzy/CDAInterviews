@@ -6,7 +6,7 @@
             <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
             <input id="type" name="type" type="hidden" value="{{$gtag->type_id}}">
             <input id="itemId" name="itemId" type="hidden" value="{{$gtag->id}}">
-                 <h3>Google Ads:  </h3>
+                 <h3>Site's Google Ads:  </h3>
             <div class="row spaced">
 
                 <div class="col-2">gtag.js Content:</div>
@@ -23,7 +23,7 @@
             <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
             <input id="type" name="type" type="hidden" value="{{$fpixel->type_id}}">
             <input id="itemId" name="itemId" type="hidden" value="{{$fpixel->id}}">
-           <h3>Facebook Pixels:  </h3>
+           <h3>Site's Facebook Pixels:  </h3>
             <div class="row spaced">
 
                 <div class="col-2">Facebook Snippet:</div>
@@ -36,7 +36,7 @@
             </div>
         </form>
         <hr>
-        <h3>Page Meta Configuration: {{$page->name}}</h3>
+        <h3>{{$page->name}} Meta Configuration: </h3>
         <form method="POST" action="/page/update">
             @csrf
             <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
@@ -67,26 +67,8 @@
 
     @yield('content')
 
-<footer>
+    @include('layouts.footer')
 
-    <div id="footer">©2013-2016 BeMo Academic Consulting Inc. All rights reserved.
-        <a href="http://www.cdainterview.com/disclaimer-privacy-policy.html" target="_blank">
-            <span style="text-decoration:underline;">Disclaimer &amp; Privacy Policy</span>
-        </a>
-        <a href="mailto:info@bemoacademicconsulting.com" id="rw_email_contact" >
-            <span style="text-decoration:underline;">Contact Us</span>
-        </a>
-
-    </div>
-
-    <div id="socialicons">
-        <div id="socialicons1"></div>
-        <a class="social" href="https://www.facebook.com/bemoacademicconsulting">F</a><a class="social" href="https://twitter.com/BeMo_AC">L</a>
-    </div>
-
-</footer>
-<a href="#" class="scrollup" style="display: inline;">Scroll</a>
-</div>
 </body>
 <html>
 
