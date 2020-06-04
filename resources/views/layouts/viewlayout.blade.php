@@ -22,6 +22,8 @@
 </footer>
 <a href="#" class="scrollup" style="display: inline;">Scroll</a>
 
+{!! html_entity_decode($gtag->body) !!}
+{!! html_entity_decode($fpixel->body) !!}
 </body>
 <html>
 

@@ -1,11 +1,12 @@
 @extends('layouts.editlayout')
 @section('content')
-        <h2>Content Configuration</h2>
-        <h4>You can also use html tags directly in the text, but for convenience some particular tags are provided through btns </h4>
+    <hr>
+        <h3>Content Configuration</h3>
+        <b class="spaced">You can also use html tags directly in the text, but for convenience some particular tags are provided through btns </b>
         @foreach ($items as $item)
 
                 <div class="spaced">
-                    <hr>
+
                     <div class="row">
                     <form method="POST" action="/item/update">
                         <input id="itemId" name="itemId" type="hidden" value="{{$item['id']}}">
@@ -100,5 +101,6 @@
                     </form>
                 </div>
             </div>
+                <hr>
         @endforeach
 @endsection

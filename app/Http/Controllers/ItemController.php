@@ -16,6 +16,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return View
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     public function store(Request $request)
     {
         $item = Item::find($request->itemId);

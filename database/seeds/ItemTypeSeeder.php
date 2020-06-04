@@ -9,6 +9,8 @@ class ItemTypeSeeder extends Seeder
      *
      * @return void
      */
+
+
     public function run()
     {
         DB::table('item_types')->insert([
@@ -27,6 +29,14 @@ class ItemTypeSeeder extends Seeder
         DB::table('item_types')->insert([
             'id'=> '4',
             'type_name' => 'html',
+        ]);
+        DB::table('item_types')->insert([
+            'id'=> '5',
+            'type_name' => 'gtag',
+        ]);
+        DB::table('item_types')->insert([
+            'id'=> '6',
+            'type_name' => 'fpixel',
         ]);
     }
 }

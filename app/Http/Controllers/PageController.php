@@ -29,15 +29,17 @@ class PageController extends Controller
     private $items = null;
     public function render($id){
         $this->items = Page::find($id)->items->toArray(['id']);
+        $gtag =  Item::where('type_id' , '=', 5)->first();
+        $fpixel =  Item::where('type_id' , '=', 6)->first();
         $page = Page::find($id);
         $types = ItemType::all();
         $hsizes = HSize::all();
         if (Auth::check()) {
-            return view('editpage')->with(['items' => $this->items , 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
+            return view('editpage')->with(['items' => $this->items , 'types' => $types, 'page' => $page, 'hsizes' => $hsizes, 'gtag'=> $gtag, 'fpixel'=>$fpixel ]);
         }
         else {
             $this->applyTags();
-            return view('viewpage')->with(['items' => $this->items, 'types' => $types, 'page' => $page, 'hsizes' => $hsizes]);
+            return view('viewpage')->with(['items' => $this->items, 'types' => $types, 'page' => $page, 'hsizes' => $hsizes, 'gtag'=> $gtag, 'fpixel'=>$fpixel]);
         }
 
     }

@@ -12,12 +12,12 @@
                     </p>
                 @elseif ($item['type_id']== '3')
                     <p class="stick-left">
-                        <img src="{{$item['link']}}" alt="{{$item['body']}}" width="100%" height="600">
+                        <img src="{{$item['link']}}" alt="{{$item['body']}}" width="100%" height="auto">
                         <a href="{{$item['link']}}">{{$item['body']}}</a>
                     </p>
                 @elseif ($item['type_id']== '4')
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12">
                             {!!html_entity_decode($item['body'])!!}
                         </div>
                     </div>

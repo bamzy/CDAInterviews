@@ -25,6 +25,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
+    {{--    From Orig Site--}}
+{{--    <script type="text/javascript" src="http://cdainterview.com/rw_common/themes/Endeavor/scripts/function.js"></script>--}}
+    <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/colourtag-page0.css">
+
 
 
 
@@ -32,39 +36,60 @@
     <link rel="stylesheet" href="{{ URL::asset('css/simple-grid.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/mystyle.css') }}" />
+{{--    <link rel="javascript" href="{{ URL::asset('js/function.js') }}" />--}}
     <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=235586069975455&amp;ev=NoScript" /></noscript><!-- End Google Analytics -->
 
 </head>
 <body>
+<script>
+    $('#mwrap').click(function () {
+
+        isClicked=$(this).data('clicked');
+        if (isClicked) {isClicked=false;} else {isClicked=true;}
+        $(this).data('clicked',isClicked);
+
+        if( isClicked ){
+            jQuery('nav, #menuBtn').addClass('show'),('open');
+            $('header').addClass('mobileb');
+            $('nav').addClass('navb');
+            $('nav ul ul').addClass('navul');
+        }else{
+            jQuery('nav, #menuBtn').removeClass('show'),('open');
+            $('header').removeClass('mobileb');
+            $('nav').removeClass('navb');
+            $('nav ul ul').removeClass('navul');
+        }
+    });
+</script>
 <div id="wrapper">
     <header class="navbar navbar-default  navbar-fixed-top desktopScreenNavbar" role="navigation">
-<span style="position: fixed;top:0;left:0;width: 100%">
-
-
-
-
-<div id="titlelogo">
-    <a href="http://cdainterview.com/">
-        <div id="logo"><img src="http://cdainterview.com/rw_common/images/bemo-logo2.png" width="167" height="100" alt="Site logo"></div>
-        </a>
-    <h2></h2>
-</div>
-    <div id="nwrap">
-    <div id="menuBtn"></div>
-    <nav>
-        <ul class="navigation">
-            @if($page->name == "Home")<li id="current">
-            @else <li> @endif
-
-                <a href="/page/1" rel="self">Main</a>
-            </li>
-            @if($page->name == "Contacts")<li id="current">
-            @else <li> @endif
-                <a href="/page/2" rel="self" >Contact Us</a>
-            </li>
-        </ul>
-    </nav>
-    </div>
-</span>
-</header>
+        <span style="position: fixed;top:0;left:0;width: 100%">
+            <div id="titlelogo">
+                <a href="http://cdainterview.com/">
+                    <div id="logo"><img src="http://cdainterview.com/rw_common/images/bemo-logo2.png" width="167" height="100" alt="Site logo"></div>
+                    </a>
+                <h2></h2>
+            </div>
+            <div id="mwrap">
+                    <div id="lt"></div>
+                    <div id="lm"></div>
+                    <div id="lb"></div>
+            </div>
+            <div id="nwrap">
+                <div id="menuBtn"></div>
+                <nav>
+                    <ul class="navigation">
+                        @if($page->name == "Home")<li id="current">
+                        @else <li> @endif
+                            <a href="/page/1" rel="self">Main</a>
+                        </li>
+                            @if($page->name == "Contacts")<li id="current">
+                            @else <li> @endif
+                                <a href="/page/2" rel="self" >Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </span>
+    </header>
 </div>
