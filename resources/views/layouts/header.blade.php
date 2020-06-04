@@ -42,23 +42,29 @@
 </head>
 <body>
 <script>
-    $('#mwrap').click(function () {
+    $( document ).ready(function() {
+        $('#mwrap').click(function () {
 
-        isClicked=$(this).data('clicked');
-        if (isClicked) {isClicked=false;} else {isClicked=true;}
-        $(this).data('clicked',isClicked);
+            isClicked = $(this).data('clicked');
+            if (isClicked) {
+                isClicked = false;
+            } else {
+                isClicked = true;
+            }
+            $(this).data('clicked', isClicked);
 
-        if( isClicked ){
-            jQuery('nav, #menuBtn').addClass('show'),('open');
-            $('header').addClass('mobileb');
-            $('nav').addClass('navb');
-            $('nav ul ul').addClass('navul');
-        }else{
-            jQuery('nav, #menuBtn').removeClass('show'),('open');
-            $('header').removeClass('mobileb');
-            $('nav').removeClass('navb');
-            $('nav ul ul').removeClass('navul');
-        }
+            if (isClicked) {
+                jQuery('nav, #menuBtn').addClass('show'), ('open');
+                $('header').addClass('mobileb');
+                $('nav').addClass('navb');
+                $('nav ul ul').addClass('navul');
+            } else {
+                jQuery('nav, #menuBtn').removeClass('show'), ('open');
+                $('header').removeClass('mobileb');
+                $('nav').removeClass('navb');
+                $('nav ul ul').removeClass('navul');
+            }
+        });
     });
 </script>
 <div id="wrapper">
@@ -87,6 +93,12 @@
                             @else <li> @endif
                                 <a href="/page/2" rel="self" >Contact Us</a>
                         </li>
+
+                        @auth
+                            <li><a href="{{ url("logout") }}">logout</a></li>
+                        @endauth
+
+
                     </ul>
                 </nav>
             </div>

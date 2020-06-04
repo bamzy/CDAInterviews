@@ -24,6 +24,8 @@ class ItemController extends Controller
     }
     public function store(Request $request)
     {
+
+//        return $request->body;
         $item = Item::find($request->itemId);
         $item->body = $request->body;
         $item->type_id = $request->type;

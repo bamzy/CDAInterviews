@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
-Route::get('/contacts', function () {
-    return view('contacts');
+//    $url = route('profile');
+//
+//    $redirect = redirect()->route('profile');
+    return redirect()->action(
+        'PageController@render', ['id' => 1]);
 });
 
-Route::get('page/{id}', 'PageController@render');;
+Route::get('page/{id}', 'PageController@render')->name('home');;
 Route::post('page/update/', 'PageController@store');
 Route::post('item/update/', 'ItemController@store');
 
@@ -29,6 +30,7 @@ Route::post('item/update/', 'ItemController@store');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Auth::routes();
 

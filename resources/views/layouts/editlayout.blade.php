@@ -4,13 +4,14 @@
         <form method="POST" action="/item/update">
             @csrf
             <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
-            <input id="type_id" name="type_id" type="hidden" value="{{$gtag->id}}">
+            <input id="type" name="type" type="hidden" value="{{$gtag->type_id}}">
+            <input id="itemId" name="itemId" type="hidden" value="{{$gtag->id}}">
                  <h3>Google Ads:  </h3>
             <div class="row spaced">
 
                 <div class="col-2">gtag.js Content:</div>
                 <div class="col-8">
-                    <textarea id="body" name="body" cols="100">{{ $gtag->body }}</textarea>
+                    <textarea id="body" name="body" cols="100" rows="10">{!! html_entity_decode($gtag->body) !!}</textarea>
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-success">Save</button>
@@ -20,13 +21,14 @@
         <form method="POST" action="/item/update">
             @csrf
             <input id="pageId" name="pageId" type="hidden" value="{{$page->id}}">
-            <input id="type_id" name="type_id" type="hidden" value="{{$fpixel->id}}">
+            <input id="type" name="type" type="hidden" value="{{$fpixel->type_id}}">
+            <input id="itemId" name="itemId" type="hidden" value="{{$fpixel->id}}">
            <h3>Facebook Pixels:  </h3>
             <div class="row spaced">
 
                 <div class="col-2">Facebook Snippet:</div>
                 <div class="col-8">
-                    <textarea id="body" name="body" cols="100">{{ $fpixel->body }}</textarea>
+                    <textarea id="body" name="body" cols="100" rows="10">{{ $fpixel->body }}</textarea>
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-success">Save</button>
