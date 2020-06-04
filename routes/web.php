@@ -31,7 +31,8 @@ Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+//Route::get('/loging', '');
+Auth::routes(['register' => false]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

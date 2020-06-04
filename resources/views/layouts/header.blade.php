@@ -93,10 +93,12 @@
                             @else <li> @endif
                                 <a href="/page/2" rel="self" >Contact Us</a>
                         </li>
-
-                        @auth
+                        @if (Auth::guest())
+                            <li><a href="{{ url("login") }}">login</a></li>
+                        @else
                             <li><a href="{{ url("logout") }}">logout</a></li>
-                        @endauth
+                        @endif
+
 
 
                     </ul>
