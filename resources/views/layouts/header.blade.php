@@ -17,7 +17,10 @@
         src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
 
 
@@ -30,7 +33,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="http://cdainterview.com/rw_common/themes/Endeavor/colourtag-page0.css">
 
-{{--    <link rel="javascript" href="{{ URL::asset('js/function.js') }}" />--}}
     <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=235586069975455&amp;ev=NoScript" /></noscript><!-- End Google Analytics -->
 
 </head>
@@ -48,6 +50,8 @@
             $(this).data('clicked', isClicked);
 
             if (isClicked) {
+                $("#nwrap > nav").css("display", "none");
+                // $("#nwrap > nav").css("display", "");
                 jQuery('nav, #menuBtn').addClass('show'), ('open');
                 $('header').addClass('mobileb');
                 $('nav').addClass('navb');
@@ -77,7 +81,7 @@
             </div>
             <div id="nwrap">
                 <div id="menuBtn"></div>
-                <nav>
+                <nav class="">
                     <ul class="navigation">
                         @if($page->name == "Home")<li id="current">
                         @else <li> @endif
