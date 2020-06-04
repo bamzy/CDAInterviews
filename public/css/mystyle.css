@@ -132,5 +132,66 @@ footer {
 #footer > a >span{
     color:darkred!important;
 }
+/*nav ul li a {*/
+/*    padding-bottom: 30px;*/
+/*}*/
+/*nav ul li {*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    padding-bottom: 30px;*/
+/*    padding: 0 27px;*/
+/*    padding-top: 30px;*/
+/*    padding-bottom: 30px;*/
+/*}*/
 
 
+/*nav > ul {*/
+/*    position: relative;*/
+/*}*/
+/*nav {*/
+/*    z-index: 10000;*/
+/*    text-align: right;*/
+/*    letter-spacing: 1px;*/
+/*    padding-right: 3%;*/
+/*    position: relative;*/
+/*}*/
+/*div {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    border: 0;*/
+/*    outline: 0;*/
+/*    font-size: 100%;*/
+/*    background: transparent;*/
+/*}*/
+/*#nwrap {*/
+/*    display: block;*/
+/*    float: right;*/
+/*    width: 70%;*/
+/*}*/
+/*#titlelogo {*/
+/*    display: inline-block;*/
+/*    float: left;*/
+/*    width: 25%;*/
+/*    padding-left: 3%;*/
+/*}*/
+/*body {*/
+/*    font: normal 14px/22px Arial, Helvetica, Geneva, sans-serif;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*}*/
+/*body {*/
+/*    font: normal 14px/22px Arial, Helvetica, Geneva, sans-serif;*/
+/*    font-style: normal;*/
+/*    font-variant-ligatures: normal;*/
+/*    font-variant-caps: normal;*/
+/*    font-variant-numeric: normal;*/
+/*    font-variant-east-asian: normal;*/
+/*    font-weight: normal;*/
+/*    font-stretch: normal;*/
+/*    font-size: 14px;*/
+/*    line-height: 22px;*/
+/*    font-family: Arial, Helvetica, Geneva, sans-serif;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*}*/
+a.social:hover {
+    color: #f4f1f1;
+}
