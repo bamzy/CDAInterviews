@@ -11,10 +11,8 @@
 
 
     <meta name="description" content="FREE Ultimate Guide to CDA Interviews: Tips &amp; Proven Strategies to Help You Prepare &amp; Ace Your CDA Structured Interview. ">
-
     <title>FREE Ultimate Guide to CDA Interviews: Tips &amp; Proven Strategies to Help You Prepare &amp; Ace Your CDA Structured Interview. </title>
 
-    <style type="text/css" media="all">#feature {background-image: url(http://cdainterview.com/resources/cda-interview-guide.jpg);}</style>
     <link re="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
 
     <script
@@ -28,14 +26,6 @@
 
 
 
-
-
-{{--    <link rel="stylesheet" type="text/css" media="all" href="http://cdainterview.com/rw_common/plugins/stacks/stacks.css">--}}
-{{--    <!--[if lte IE 7]>--}}
-{{--    <link rel='stylesheet' type='text/css' media='all' href='http://cdainterview.com/rw_common/plugins/stacks/stacks_ie.css' />--}}
-{{--    <![endif]-->--}}
-{{--    <link rel="stylesheet" type="text/css" media="all" href="http://cdainterview.com/index_files/stacks_page_page0.css">--}}
-{{--    <script type="text/javascript" charset="utf-8" src="http://cdainterview.com/index_files/stacks_page_page0.js"></script>--}}
 
 
     <meta name="{{$page->meta_name}}" content="{{$page->meta_description}}">
