@@ -21,6 +21,15 @@
                             {!!html_entity_decode($item['body'])!!}
                         </div>
                     </div>
+                @elseif ($item['type_id']== '8')
+                    <div class="row">
+                        <div class="col-12">
+                            <form method="post" action="{{$item['link']}}">
+                                @csrf
+                            {!!html_entity_decode($item['body'])!!}
+                            </form>
+                        </div>
+                    </div>
 
                 @endif
             @endif

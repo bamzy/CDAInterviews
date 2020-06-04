@@ -53,6 +53,26 @@
                                     <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
                                 </div>
                             </div>
+                        @elseif ($item['type_id'] == "7")
+                            <div class="row">
+                                <div class="col-2"><b>Email Address:</b></div>
+                                <div class="col-10">
+                                    <input id="body" name="body"  class="form-control" value="{{ $item['body'] }}">
+                                </div>
+                            </div>
+                        @elseif ($item['type_id'] == "8")
+                            <div class="row">
+                                <div class="col-2"><b>Form Action:</b></div>
+                                <div class="col-10">
+                                    <input id="linkAddress" name="linkAddress"  class="form-control" value="{{ $item['link'] }}">
+                                </div>
+                                <div class="col-2"><b>Form Content:</b></div>
+                                <div class="col-10">
+                                    <textarea id="body" name="body" cols="100" rows="4" class="form-control">{{ $item['body'] }}</textarea>
+                                </div>
+                            </div>
+
+
 
 
 
@@ -61,23 +81,23 @@
                         <div class="row">
                             <div class="col-2"><b>Style:</b></div>
                             <div class="col-10">
-                                    @if ($item['type_id'] != "3" && $item['type_id'] != "4"  )
+                                    @if ($item['type_id'] != "3" && $item['type_id'] != "4" && $item['type_id'] != "7" && $item['type_id'] != "8")
                                         <div class="col-sm-1">Italic:<label class="switch">
-                                    <input id="italicFlag" name="italicFlag" type="checkbox"  @if ($item['italic'])checked @endif>
-                                    <span class="slider round"></span>
-                                </label></div>
-                                        <div class="col-sm-1">Bold:<label class="switch">
-                                <input id="boldFlag" name="boldFlag" type="checkbox"  @if ($item['bold'])checked @endif>
-                                <span class="slider round"></span>
-                                            </label></div>
-                                        <div class="col-sm-1">Strike:<label class="switch">
-                                <input id="strikeFlag" name="strikeFlag" type="checkbox"  @if ($item['striked'])checked @endif>
-                                <span class="slider round"></span>
-                                            </label></div>
-                                        <div class="col-sm-1">Center:<label class="switch">
-                                <input id="centerFlag" name="centerFlag" type="checkbox"  @if ($item['centralized'])checked @endif>
-                                <span class="slider round"></span>
-                                            </label></div>
+                                            <input id="italicFlag" name="italicFlag" type="checkbox"  @if ($item['italic'])checked @endif>
+                                            <span class="slider round"></span>
+                                        </label></div>
+                                                <div class="col-sm-1">Bold:<label class="switch">
+                                        <input id="boldFlag" name="boldFlag" type="checkbox"  @if ($item['bold'])checked @endif>
+                                        <span class="slider round"></span>
+                                                    </label></div>
+                                                <div class="col-sm-1">Strike:<label class="switch">
+                                        <input id="strikeFlag" name="strikeFlag" type="checkbox"  @if ($item['striked'])checked @endif>
+                                        <span class="slider round"></span>
+                                                    </label></div>
+                                                <div class="col-sm-1">Center:<label class="switch">
+                                        <input id="centerFlag" name="centerFlag" type="checkbox"  @if ($item['centralized'])checked @endif>
+                                        <span class="slider round"></span>
+                                                    </label></div>
 
 
                                         <div class="col-3">Header:

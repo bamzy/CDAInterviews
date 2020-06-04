@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('page/{id}', 'PageController@render')->name('home');;
 Route::post('page/update/', 'PageController@store');
 Route::post('item/update/', 'ItemController@store');
+Route::post('email/send/{id}', 'ContactController@store');
 
 
 // Authentication routes...
